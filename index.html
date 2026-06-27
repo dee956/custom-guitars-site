@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artisan Custom Guitars — Build Your Dream Electric</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0e0c0a; --bg2:#161210; --panel:#1d1916; --panel2:#241f1a;
+    --line:#332b24; --gold:#c9a25a; --gold2:#e3c281; --txt:#efe7dc;
+    --muted:#9c9085; --accent:#b9854a; --good:#7fae6a;
+    --shadow:0 18px 50px rgba(0,0,0,.45);
+    --ff:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    --fd:'Cormorant Garamond',Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:var(--ff);background:
+      radial-gradient(1200px 600px at 80% -10%,rgba(201,162,90,.10),transparent 60%),
+      radial-gradient(900px 500px at -10% 110%,rgba(185,133,74,.08),transparent 55%),
+      var(--bg);
+    color:var(--txt);line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
+  a{color:var(--gold2)}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+
+  /* Header */
+  header.site{position:sticky;top:0;z-index:30;backdrop-filter:blur(9px);
+    background:linear-gradient(180deg,rgba(14,12,10,.92),rgba(14,12,10,.7));border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:12px;font-family:var(--fd);font-weight:700;font-size:1.45rem;letter-spacing:.3px}
+  .brand .mark{width:34px;height:34px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold2);font-size:1rem}
+  .brand small{display:block;font-family:var(--ff);font-weight:400;font-size:.6rem;letter-spacing:.32em;color:var(--muted);text-transform:uppercase;margin-top:-3px}
+  .nav .pills{display:flex;gap:26px;font-size:.82rem;color:var(--muted)}
+  .nav .pills span{cursor:default}
+  .badge-usp{font-size:.7rem;color:var(--gold2);border:1px solid var(--line);border-radius:999px;padding:6px 13px;letter-spacing:.04em}
+
+  /* Hero */
+  .hero{padding:64px 0 30px;text-align:center}
+  .hero h1{font-family:var(--fd);font-weight:700;font-size:clamp(2.4rem,6vw,4.3rem);line-height:1.02;margin:0 0 16px}
+  .hero h1 em{color:var(--gold2);font-style:italic}
+  .hero p.sub{max-width:640px;margin:0 auto 8px;color:var(--muted);font-size:1.06rem;font-weight:300}
+  .trust{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:26px 0 8px}
+  .trust .t{font-size:.78rem;color:var(--txt);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:8px 15px}
+  .trust .t b{color:var(--gold2);font-weight:600}
+
+  /* Builder shell */
+  .builder{display:grid;grid-template-columns:1fr 340px;gap:26px;margin:30px 0 70px;align-items:start}
+  @media(max-width:880px){.builder{grid-template-columns:1fr}}
+
+  .chat{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:20px;
+    box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;min-height:560px}
+  .chat-head{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.2)}
+  .chat-head .av{width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--gold2),var(--accent));display:grid;place-items:center;color:#1a130a;font-weight:700}
+  .chat-head .who{font-weight:600;font-size:.95rem}
+  .chat-head .who small{display:block;color:var(--muted);font-weight:400;font-size:.74rem}
+  .chat-head .live{margin-left:auto;font-size:.72rem;color:var(--good);display:flex;align-items:center;gap:6px}
+  .chat-head .live i{width:7px;height:7px;border-radius:50%;background:var(--good);display:inline-block;box-shadow:0 0 0 0 rgba(127,174,106,.6);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(127,174,106,.5)}70%{box-shadow:0 0 0 7px rgba(127,174,106,0)}100%{box-shadow:0 0 0 0 rgba(127,174,106,0)}}
+
+  .stream{padding:22px 20px 8px;overflow-y:auto;flex:1;max-height:60vh;scroll-behavior:smooth}
+  .msg{display:flex;gap:11px;margin-bottom:16px;animation:rise .35s ease both}
+  @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .msg .ava{flex:0 0 30px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:.8rem;font-weight:700;margin-top:2px}
+  .msg.bot .ava{background:radial-gradient(circle at 30% 30%,var(--gold2),var(--accent));color:#1a130a}
+  .msg.me{flex-direction:row-reverse}
+  .msg.me .ava{background:var(--panel2);color:var(--gold2);border:1px solid var(--line)}
+  .bubble{max-width:80%;padding:11px 15px;border-radius:14px;font-size:.95rem}
+  .msg.bot .bubble{background:var(--panel2);border:1px solid var(--line);border-top-left-radius:4px}
+  .msg.me .bubble{background:linear-gradient(180deg,#2c2218,#241b12);border:1px solid var(--accent);border-top-right-radius:4px;color:var(--txt)}
+  .bubble .hint{display:block;color:var(--muted);font-size:.82rem;margin-top:5px}
+  .typing span{display:inline-block;width:7px;height:7px;margin:0 1px;border-radius:50%;background:var(--muted);animation:blink 1.2s infinite both}
+  .typing span:nth-child(2){animation-delay:.2s}.typing span:nth-child(3){animation-delay:.4s}
+  @keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+
+  /* input / options dock */
+  .dock{border-top:1px solid var(--line);padding:16px 20px;background:rgba(0,0,0,.18)}
+  .opts{display:flex;flex-wrap:wrap;gap:10px}
+  .opt{cursor:pointer;border:1px solid var(--line);background:var(--panel2);color:var(--txt);
+    border-radius:12px;padding:11px 14px;font-size:.9rem;transition:.15s;text-align:left;line-height:1.25;max-width:100%}
+  .opt:hover{border-color:var(--gold);transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.3)}
+  .opt b{display:block;font-weight:600}
+  .opt small{color:var(--muted);font-size:.76rem}
+  .opt .delta{color:var(--gold2);font-size:.76rem;font-weight:600}
+  .opt.rec{border-color:var(--accent)}
+  .opt.rec::after{content:'★ suggested';display:block;color:var(--gold2);font-size:.66rem;margin-top:4px;letter-spacing:.05em}
+  .recbtn{cursor:pointer;border:1px dashed var(--accent);background:transparent;color:var(--gold2);border-radius:12px;padding:11px 14px;font-size:.86rem;transition:.15s}
+  .recbtn:hover{background:rgba(201,162,90,.08)}
+  textarea.free,input.free{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:12px;color:var(--txt);
+    padding:13px;font-family:var(--ff);font-size:.95rem;resize:vertical}
+  textarea.free:focus,input.free:focus{outline:none;border-color:var(--gold)}
+  .send{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
+  .btn{cursor:pointer;border:none;border-radius:12px;padding:12px 20px;font-size:.92rem;font-weight:600;transition:.15s;font-family:var(--ff)}
+  .btn.primary{background:linear-gradient(180deg,var(--gold2),var(--accent));color:#1a130a}
+  .btn.primary:hover{filter:brightness(1.06);transform:translateY(-1px)}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--txt)}
+  .btn.ghost:hover{border-color:var(--gold)}
+
+  /* Spec sidebar */
+  .spec{position:sticky;top:84px;background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);
+    border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+  .spec .top{padding:18px 20px;border-bottom:1px solid var(--line)}
+  .spec .top h3{margin:0;font-family:var(--fd);font-size:1.3rem;font-weight:700}
+  .spec .top small{color:var(--muted);font-size:.76rem}
+  .price-box{padding:20px;text-align:center;border-bottom:1px solid var(--line);background:radial-gradient(400px 140px at 50% 0,rgba(201,162,90,.10),transparent)}
+  .price-box .lab{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .price-box .amt{font-family:var(--fd);font-size:2.7rem;font-weight:700;color:var(--gold2);line-height:1.1;margin:4px 0}
+  .price-box .note{font-size:.74rem;color:var(--muted)}
+  .price-box .mkt{font-size:.72rem;color:var(--muted);margin-top:7px}
+  .price-box .mkt s{color:#6f6459}
+  .progress{height:5px;background:var(--panel2)}
+  .progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--gold2));transition:width .4s}
+  .specs{padding:8px 20px 18px;max-height:320px;overflow-y:auto}
+  .specs .row{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:.85rem}
+  .specs .row:last-child{border-bottom:none}
+  .specs .row .k{color:var(--muted)}
+  .specs .row .v{text-align:right;font-weight:500}
+  .specs .empty{color:var(--muted);font-size:.85rem;padding:18px 0;text-align:center}
+
+  /* Summary */
+  .summary{display:none;padding:26px 24px}
+  .summary h2{font-family:var(--fd);font-size:2rem;margin:0 0 4px;color:var(--gold2)}
+  .sumgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px 22px;margin:18px 0}
+  @media(max-width:560px){.sumgrid{grid-template-columns:1fr}}
+  .sumgrid .row{display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:8px 0;font-size:.9rem}
+  .sumgrid .row .k{color:var(--muted)}
+  .leadform{display:grid;gap:12px;margin-top:18px;grid-template-columns:1fr 1fr}
+  .leadform input,.leadform textarea{grid-column:span 1}
+  .leadform .full{grid-column:1/-1}
+  @media(max-width:560px){.leadform{grid-template-columns:1fr}}
+
+  footer.site{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:.82rem;text-align:center}
+  .placeholder-tag{display:inline-block;background:rgba(201,162,90,.12);color:var(--gold2);border:1px solid var(--line);
+    border-radius:6px;padding:2px 8px;font-size:.7rem;margin-left:8px}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap nav">
+    <div class="brand">
+      <span class="mark">✦</span>
+      <span>Artisan Custom Guitars<small>Handbuilt Electrics</small></span>
+    </div>
+    <div class="pills">
+      <span>The Workshop</span><span>Gallery</span><span>Process</span><span>Build Yours</span>
+    </div>
+    <div class="badge-usp">100% Satisfaction · 20 Yrs</div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Describe it. We'll <em>build it</em>.</h1>
+    <p class="sub">Tell our master luthier what you hear in your head. We'll ask a few questions, then handcraft a one-of-one electric guitar made for you — and only you.</p>
+    <div class="trust">
+      <div class="t"><b>Handmade</b> with care</div>
+      <div class="t"><b>20 years</b> of experience</div>
+      <div class="t"><b>100%</b> satisfaction guarantee</div>
+      <div class="t"><b>One-of-one</b> instruments</div>
+    </div>
+  </section>
+
+  <section class="builder">
+    <!-- CHAT -->
+    <div class="chat">
+      <div class="chat-head">
+        <div class="av">✦</div>
+        <div class="who">Bench <small>Your custom-build guide</small></div>
+        <div class="live"><i></i> taking commissions</div>
+      </div>
+      <div class="stream" id="stream"></div>
+      <div class="dock" id="dock"></div>
+
+      <!-- summary view -->
+      <div class="summary" id="summary">
+        <h2>Your one-of-one spec sheet</h2>
+        <p style="color:var(--muted);margin:0">Here's the guitar we'll handcraft for you. Leave your details and our luthier will personally review your build and reach out within one business day.</p>
+        <div class="sumgrid" id="sumgrid"></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);padding-top:14px;margin-top:6px">
+          <span style="color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.15em">Your handcrafted investment</span>
+          <span style="font-family:var(--fd);font-size:2.1rem;color:var(--gold2);font-weight:700" id="sumprice">—</span>
+        </div>
+        <div class="leadform">
+          <input class="free" id="lf-name" placeholder="Your name">
+          <input class="free" id="lf-email" placeholder="Email address">
+          <input class="free full" id="lf-phone" placeholder="Phone (optional)">
+          <textarea class="free full" id="lf-notes" rows="2" placeholder="Anything else we should know? (timeline, inspiration, a photo link…)"></textarea>
+          <button class="btn primary full" onclick="submitLead()">Request my build &nbsp;→</button>
+        </div>
+        <p style="color:var(--muted);font-size:.78rem;margin-top:12px">Estimate only — final quote confirmed after our luthier reviews your spec. No deposit required to start the conversation.</p>
+        <div style="margin-top:14px"><button class="btn ghost" onclick="restart()">↺ Start a new build</button></div>
+      </div>
+    </div>
+
+    <!-- SPEC SIDEBAR -->
+    <aside class="spec">
+      <div class="top">
+        <h3>Your Build</h3>
+        <small id="spec-sub">Live spec &amp; estimate</small>
+      </div>
+      <div class="price-box">
+        <div class="lab">Estimated Investment</div>
+        <div class="amt" id="price">$0</div>
+        <div class="note">Handmade · built to order</div>
+        <div class="mkt" id="mkt"></div>
+      </div>
+      <div class="progress"><i id="bar"></i></div>
+      <div class="specs" id="specs"><div class="empty">Your selections will appear here as we go.</div></div>
+    </aside>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    Artisan Custom Guitars <span class="placeholder-tag">placeholder name — swap for your brand</span><br>
+    Every instrument handmade in our shop · Backed by our 100% satisfaction guarantee · © 2026
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   PRICING MODEL
+   competitorBase = realistic boutique/custom-shop baseline.
+   Your price = competitorBase * PRICE_MULTIPLIER (handmade premium).
+   ============================================================ */
+const BASE = 1500;            // baseline build (competitor) before options
+const PRICE_MULTIPLIER = 2;   // your USP: handcrafted, 2x market
+
+const money = n => '$' + Math.round(n).toLocaleString('en-US');
+
+/* profile -> recommendation overrides, set from the opening free-text */
+let profile = {label:'', recs:{}, blurb:''};
+
+function detectProfile(text){
+  const t = (text||'').toLowerCase();
+  const has = (...w)=>w.some(x=>t.includes(x));
+  if(has('metal','djent','shred','heavy','thrash','death','prog')) return {
+    label:'modern metal', blurb:"Heavy, fast, and precise — I'll lean toward high-output humbuckers, a locking trem, and a fast neck.",
+    recs:{bodyStyle:'double',bodyWood:'mahogany',neckConstruction:'neckthru',fretCount:'24',fretMat:'stainless',
+          pickupConfig:'hh',pickupType:'active',bridge:'floyd',tuners:'locking',finishType:'matte',hardwareColor:'black'}};
+  if(has('blues','vintage','classic','60s','50s','soul','warm')) return {
+    label:'vintage blues', blurb:"Warm, woody, and classic — I'll steer us toward single-coils, a vintage tremolo, and timeless looks.",
+    recs:{bodyStyle:'s',bodyWood:'alder',neckConstruction:'bolt',fretCount:'22',pickupConfig:'sss',pickupType:'boutique',
+          bridge:'vintagetrem',tuners:'vintage',finishType:'sunburst',fretboard:'rosewood'}};
+  if(has('jazz','smooth','hollow','mellow')) return {
+    label:'jazz tone', blurb:"Smooth and resonant — a semi-hollow body with warm humbuckers will sing for you.",
+    recs:{bodyStyle:'semi',bodyWood:'mahogany',neckConstruction:'set',pickupConfig:'hh',pickupType:'premium',
+          bridge:'tunomatic',finishType:'sunburst'}};
+  if(has('country','twang','telecaster','tele','chicken')) return {
+    label:'country twang', blurb:"Bright and snappy — a T-style with crisp single-coils is the move.",
+    recs:{bodyStyle:'t',bodyWood:'ash',pickupConfig:'ss',pickupType:'boutique',bridge:'hardtail',finishType:'gloss'}};
+  if(has('rock','punk','indie','alt')) return {
+    label:'rock', blurb:"Punchy and versatile — I'll suggest a humbucker/single mix you can take anywhere.",
+    recs:{bodyStyle:'single',bodyWood:'mahogany',pickupConfig:'hss',pickupType:'premium',bridge:'2pt',finishType:'gloss'}};
+  return {label:'', blurb:"Love it. Let's shape the details together — pick what speaks to you, or tap ‘Recommend for me' any time.", recs:{}};
+}
+
+/* ============================================================
+   QUESTION FLOW  — covers every major build option.
+   essential:true  -> always asked (also in Quick mode)
+   showIf(a)       -> conditional branching
+   ============================================================ */
+const STEPS = [
+  { key:'bodyStyle', essential:true, q:"First, the silhouette. Which body shape calls to you?",
+    opts:[
+      {v:'t',label:'T-Style',d:'Twangy, classic single-cut',delta:0},
+      {v:'s',label:'S-Style',d:'Contoured double-cut workhorse',delta:0},
+      {v:'single',label:'Single-Cut (LP)',d:'Thick, sustaining, premium',delta:120},
+      {v:'double',label:'Modern Double-Cut',d:'Fast access, aggressive',delta:80},
+      {v:'semi',label:'Semi-Hollow (335)',d:'Warm, airy, resonant',delta:300},
+      {v:'offset',label:'Offset',d:'Quirky, comfortable, indie',delta:60},
+      {v:'exp',label:'Explorer / V',d:'Bold, angular statement',delta:120},
+      {v:'custom',label:'Fully custom shape',d:'We draw it from scratch',delta:450},
+    ]},
+  { key:'bodyWood', essential:true, q:"What should the body be carved from? This shapes both tone and weight.",
+    opts:[
+      {v:'alder',label:'Alder',d:'Balanced, classic',delta:0},
+      {v:'ash',label:'Swamp Ash',d:'Snappy, light, open grain',delta:150},
+      {v:'mahogany',label:'Mahogany',d:'Warm, thick, sustaining',delta:130},
+      {v:'basswood',label:'Basswood',d:'Light, even, mod-friendly',delta:0},
+      {v:'korina',label:'Korina',d:'Vintage warmth, rare',delta:220},
+    ]},
+  { key:'topWood', essential:false, showIf:a=>['single','double','semi','custom','offset'].includes(a.bodyStyle),
+    q:"Want a figured top cap? This is where a guitar becomes art.",
+    opts:[
+      {v:'none',label:'No cap',d:'Clean & classic',delta:0},
+      {v:'flame',label:'Flame Maple',d:'Rippling tiger stripe',delta:300},
+      {v:'quilt',label:'Quilted Maple',d:'Deep 3-D water figure',delta:360},
+      {v:'burl',label:'Burl / Spalted',d:'Wild organic character',delta:300},
+    ]},
+  { key:'neckConstruction', essential:true, q:"How should the neck join the body? It changes feel and sustain.",
+    opts:[
+      {v:'bolt',label:'Bolt-On',d:'Snappy attack, serviceable',delta:0},
+      {v:'set',label:'Set Neck',d:'Warm, seamless, classic',delta:200},
+      {v:'neckthru',label:'Neck-Through',d:'Max sustain, sleek heel',delta:420},
+    ]},
+  { key:'neckWood', essential:false, q:"And the neck timber?",
+    opts:[
+      {v:'maple',label:'Maple',d:'Bright, stiff, snappy',delta:0},
+      {v:'roasted',label:'Roasted Maple',d:'Stable, amber, silky',delta:160},
+      {v:'mahogany',label:'Mahogany',d:'Warm, vintage feel',delta:90},
+      {v:'wenge',label:'Wenge',d:'Exotic, tight, fast',delta:210},
+    ]},
+  { key:'fretboard', essential:false, q:"Fingerboard wood — where your hand lives.",
+    opts:[
+      {v:'rosewood',label:'Rosewood',d:'Warm, smooth standard',delta:0},
+      {v:'maple',label:'Maple',d:'Bright, snappy, lacquered',delta:0},
+      {v:'ebony',label:'Ebony',d:'Slick, fast, jet-black',delta:130},
+      {v:'pauferro',label:'Pau Ferro',d:'Tight grain, balanced',delta:60},
+    ]},
+  { key:'fretCount', essential:false, q:"How many frets do you need up top?",
+    opts:[
+      {v:'22',label:'22 Frets',d:'Classic, vintage spacing',delta:0},
+      {v:'24',label:'24 Frets',d:'Two full octaves',delta:50},
+    ]},
+  { key:'fretMat', essential:false, q:"Fret wire — stainless lasts a lifetime and feels glassy.",
+    opts:[
+      {v:'nickel',label:'Nickel Silver',d:'Traditional feel',delta:0},
+      {v:'stainless',label:'Stainless Steel',d:'Smooth, near-permanent',delta:130},
+    ]},
+  { key:'scale', essential:false, q:"Scale length sets string tension and spacing.",
+    opts:[
+      {v:'255',label:'25.5" (Fender)',d:'Tight, bright',delta:0},
+      {v:'2475',label:'24.75" (Gibson)',d:'Slinky, warm',delta:0},
+      {v:'multi',label:'Multiscale / Fanned',d:'Even tension, low-tuning',delta:260},
+    ]},
+  { key:'pickupConfig', essential:true, q:"Now the engine room — what pickup layout?",
+    opts:[
+      {v:'hh',label:'HH',d:'Two humbuckers — fat & loud',delta:0},
+      {v:'hss',label:'HSS',d:'Bridge humbucker + 2 singles',delta:0},
+      {v:'sss',label:'SSS',d:'Three single-coils — classic',delta:0},
+      {v:'ss',label:'SS (T-style)',d:'Twang machine',delta:0},
+      {v:'p90',label:'Dual P-90s',d:'Gritty, midrange bark',delta:60},
+      {v:'h',label:'Single humbucker',d:'Minimalist & raw',delta:0},
+    ]},
+  { key:'pickupType', essential:true, q:"And the quality tier of those pickups?",
+    opts:[
+      {v:'standard',label:'Quality Stock',d:'Great, dependable tone',delta:0},
+      {v:'premium',label:'Premium Branded',d:'Seymour Duncan / DiMarzio',delta:180},
+      {v:'boutique',label:'Boutique Hand-Wound',d:'Custom-spec, one-off',delta:360},
+      {v:'active',label:'Active (EMG-style)',d:'Tight, quiet, high-output',delta:220},
+    ]},
+  { key:'bridge', essential:true, q:"Bridge & vibrato — how do you want to control pitch?",
+    opts:[
+      {v:'hardtail',label:'Hardtail / Fixed',d:'Rock-solid tuning',delta:0},
+      {v:'tunomatic',label:'Tune-o-matic',d:'Classic stopbar',delta:0},
+      {v:'vintagetrem',label:'Vintage Tremolo',d:'Subtle 6-screw wobble',delta:90},
+      {v:'2pt',label:'2-Point Tremolo',d:'Smooth modern dive',delta:110},
+      {v:'floyd',label:'Floyd Rose',d:'Lock-in dive bombs',delta:210},
+      {v:'evertune',label:'Evertune',d:'Never goes out of tune',delta:300},
+      {v:'bigsby',label:'Bigsby',d:'Lush vintage shimmer',delta:230},
+    ]},
+  { key:'tuners', essential:false, q:"Tuning machines?",
+    opts:[
+      {v:'standard',label:'Quality Sealed',d:'Smooth & reliable',delta:0},
+      {v:'locking',label:'Locking Tuners',d:'Fast restrings, stable',delta:90},
+      {v:'vintage',label:'Vintage Open-Gear',d:'Period-correct look',delta:40},
+    ]},
+  { key:'electronics', essential:false, q:"Any wiring tricks? More options = more sounds.",
+    opts:[
+      {v:'standard',label:'Standard Wiring',d:'Clean & classic',delta:0},
+      {v:'coilsplit',label:'Coil-Split Push/Pull',d:'Humbucker → single tones',delta:60},
+      {v:'active',label:'Active Preamp / EQ',d:'Onboard boost & shaping',delta:160},
+      {v:'loaded',label:'The Works',d:'Coil-split + treble bleed + kill switch',delta:120},
+    ]},
+  { key:'finishType', essential:true, q:"Let's talk looks. What kind of finish?",
+    opts:[
+      {v:'gloss',label:'Gloss Solid',d:'Deep, mirror-smooth color',delta:0},
+      {v:'matte',label:'Matte / Satin',d:'Modern, fingerprint-proof',delta:0},
+      {v:'sunburst',label:'Sunburst',d:'Hand-sprayed fade',delta:160},
+      {v:'trans',label:'Transparent / Natural',d:'Shows the wood grain',delta:130},
+      {v:'metallic',label:'Metallic / Sparkle',d:'Flake that catches light',delta:130},
+      {v:'relic',label:'Relic / Aged',d:'Played-in vintage vibe',delta:260},
+      {v:'graphic',label:'Custom Graphic',d:'Artwork, burst, anything',delta:360},
+    ]},
+  { key:'finishColor', essential:true, type:'text', q:"What color or finish detail are you picturing? (e.g. ‘Lake Placid Blue', ‘natural amber', ‘matte black')",
+    placeholder:'Describe your color…' },
+  { key:'hardwareColor', essential:false, q:"Hardware color to tie it together?",
+    opts:[
+      {v:'chrome',label:'Chrome',d:'Bright & classic',delta:0},
+      {v:'nickel',label:'Nickel',d:'Softer vintage sheen',delta:0},
+      {v:'black',label:'Black',d:'Stealthy & modern',delta:40},
+      {v:'gold',label:'Gold',d:'Luxe & warm',delta:70},
+    ]},
+  { key:'inlays', essential:false, q:"Fingerboard inlays?",
+    opts:[
+      {v:'dots',label:'Dots',d:'Clean & traditional',delta:0},
+      {v:'blocks',label:'Blocks',d:'Bold, premium look',delta:80},
+      {v:'none',label:'None / Side-dots only',d:'Minimalist',delta:0},
+      {v:'custom',label:'Custom Inlay',d:'Your design, inlaid by hand',delta:240},
+    ]},
+  { key:'binding', essential:false, q:"Body & neck binding for that finished edge?",
+    opts:[
+      {v:'none',label:'No Binding',d:'Modern & clean',delta:0},
+      {v:'body',label:'Body Binding',d:'Elegant framed edge',delta:120},
+      {v:'both',label:'Body + Neck Binding',d:'Top-shelf detailing',delta:210},
+    ]},
+  { key:'caseChoice', essential:false, q:"Finally — how should it travel home?",
+    opts:[
+      {v:'gigbag',label:'Premium Gig Bag',d:'Light & padded',delta:0},
+      {v:'hardshell',label:'Hardshell Case',d:'Full protection',delta:120},
+      {v:'flight',label:'Flight Case',d:'Tour-ready armor',delta:210},
+    ]},
+];
+
+/* Pretty labels for the spec sheet */
+const FIELD_LABELS = {
+  bodyStyle:'Body Shape', bodyWood:'Body Wood', topWood:'Top Cap', neckConstruction:'Neck Joint',
+  neckWood:'Neck Wood', fretboard:'Fingerboard', fretCount:'Frets', fretMat:'Fret Wire', scale:'Scale Length',
+  pickupConfig:'Pickup Layout', pickupType:'Pickup Tier', bridge:'Bridge', tuners:'Tuners',
+  electronics:'Electronics', finishType:'Finish', finishColor:'Color', hardwareColor:'Hardware',
+  inlays:'Inlays', binding:'Binding', caseChoice:'Case'
+};
+
+/* ============================================================
+   STATE + ENGINE
+   ============================================================ */
+let answers = {};
+let mode = 'full';   // 'full' or 'quick'
+let phase = 'intro'; // intro -> mode -> building -> done
+const stream = document.getElementById('stream');
+const dock = document.getElementById('dock');
+
+function botSay(html, hint){
+  const m=document.createElement('div'); m.className='msg bot';
+  m.innerHTML=`<div class="ava">✦</div><div class="bubble">${html}${hint?`<span class="hint">${hint}</span>`:''}</div>`;
+  stream.appendChild(m); scrollDown();
+}
+function meSay(text){
+  const m=document.createElement('div'); m.className='msg me';
+  m.innerHTML=`<div class="ava">you</div><div class="bubble">${text}</div>`;
+  stream.appendChild(m); scrollDown();
+}
+function typing(cb){
+  const m=document.createElement('div'); m.className='msg bot';
+  m.innerHTML=`<div class="ava">✦</div><div class="bubble typing"><span></span><span></span><span></span></div>`;
+  stream.appendChild(m); scrollDown();
+  setTimeout(()=>{m.remove();cb();},520);
+}
+function scrollDown(){ stream.scrollTop = stream.scrollHeight; }
+function clearDock(){ dock.innerHTML=''; }
+
+/* ---------- INTRO ---------- */
+function startIntro(){
+  phase='intro'; answers={}; document.getElementById('summary').style.display='none';
+  dock.style.display='block'; stream.innerHTML='';
+  botSay("Welcome — I'm Bench, your build guide. 🛠️ In a sentence or two, tell me about the guitar you're dreaming of. The music you play, an artist's tone you love, a look you can't shake — anything.",
+    "No wrong answers. The more you tell me, the smarter my suggestions.");
+  clearDock();
+  dock.innerHTML = `
+    <textarea class="free" id="intro" rows="3" placeholder="e.g. I play heavy prog metal and want something fast, dark, and built for drop tunings…"></textarea>
+    <div class="send">
+      <button class="btn primary" onclick="submitIntro()">Let's build it &nbsp;→</button>
+      <button class="btn ghost" onclick="document.getElementById('intro').value='';submitIntro(true)">Skip — surprise me</button>
+    </div>`;
+  document.getElementById('intro').focus();
+}
+
+function submitIntro(skip){
+  const txt = skip ? '' : (document.getElementById('intro').value||'').trim();
+  meSay(skip||!txt ? "I'm open — guide me." : txt);
+  profile = detectProfile(txt);
+  clearDock();
+  typing(()=>{
+    const opener = profile.label
+      ? `Ah, a <b>${profile.label}</b> player — I love it. ${profile.blurb}`
+      : profile.blurb;
+    botSay(opener);
+    typing(()=>askMode());
+  });
+}
+
+/* ---------- MODE ---------- */
+function askMode(){
+  phase='mode';
+  botSay("How hands-on do you want to be today?");
+  clearDock();
+  dock.innerHTML=`<div class="opts">
+    <button class="opt rec" style="flex:1;min-width:160px" onclick="setMode('quick')"><b>Quick build</b><small>Answer the essentials — I'll smart-fill the rest with my picks. ~7 questions.</small></button>
+    <button class="opt" style="flex:1;min-width:160px" onclick="setMode('full')"><b>Full custom</b><small>Walk through every single option. The complete experience.</small></button>
+  </div>`;
+}
+function setMode(m){
+  mode=m;
+  meSay(m==='quick'?'Quick build, please.':'Full custom — every detail.');
+  phase='building';
+  typing(()=>{ if(m==='quick'){ applyQuickDefaults(); } nextQuestion(); });
+}
+
+/* In quick mode, prefill non-essential steps with the recommended pick */
+function applyQuickDefaults(){
+  STEPS.forEach(s=>{
+    if(s.essential) return;
+    if(s.showIf && !s.showIf(answers)) return;
+    if(s.type==='text'){ return; }
+    const rec = recommendedOpt(s);
+    if(rec) answers[s.key]=rec.v;
+  });
+  render();
+}
+
+/* ---------- QUESTION ENGINE ---------- */
+function recommendedOpt(step){
+  if(!step.opts) return null;
+  const want = profile.recs[step.key];
+  if(want){ const m=step.opts.find(o=>o.v===want); if(m) return m; }
+  return step.opts[0]; // sensible default
+}
+
+function nextStep(){
+  return STEPS.find(s=>{
+    if(answers[s.key]!==undefined) return false;
+    if(s.showIf && !s.showIf(answers)) return false;
+    if(mode==='quick' && !s.essential && s.type!=='text') return false;
+    return true;
+  });
+}
+
+function nextQuestion(){
+  const step = nextStep();
+  if(!step){ finish(); return; }
+  botSay(step.q);
+  clearDock();
+  if(step.type==='text'){
+    dock.innerHTML=`<input class="free" id="freein" placeholder="${step.placeholder||'Type here…'}">
+      <div class="send"><button class="btn primary" onclick="answerText('${step.key}')">Continue →</button></div>`;
+    const el=document.getElementById('freein'); el.focus();
+    el.addEventListener('keydown',e=>{if(e.key==='Enter')answerText(step.key);});
+    return;
+  }
+  const rec = recommendedOpt(step);
+  let html='<div class="opts">';
+  step.opts.forEach(o=>{
+    const isRec = profile.recs[step.key]===o.v;
+    html+=`<button class="opt${isRec?' rec':''}" onclick="answer('${step.key}','${o.v}')">
+      <b>${o.label}${o.delta?` <span class="delta">+${money(o.delta*PRICE_MULTIPLIER)}</span>`:''}</b>
+      <small>${o.d}</small></button>`;
+  });
+  html+='</div>';
+  html+=`<div style="margin-top:10px"><button class="recbtn" onclick="answer('${step.key}','${rec.v}',true)">✨ Recommend for me</button></div>`;
+  dock.innerHTML=html;
+}
+
+function answer(key,val,viaRec){
+  const step=STEPS.find(s=>s.key===key);
+  const o=step.opts.find(x=>x.v===val);
+  answers[key]=val;
+  meSay((viaRec?'✨ ':'')+o.label);
+  render();
+  clearDock();
+  typing(()=>{
+    if(viaRec) botSay(`Great pick — <b>${o.label}</b> it is. ${o.d}.`);
+    nextQuestion();
+  });
+}
+function answerText(key){
+  const el=document.getElementById('freein'); const v=(el.value||'').trim()||'Your choice';
+  answers[key]=v; meSay(v); render(); clearDock();
+  typing(()=>nextQuestion());
+}
+
+/* ---------- PRICING + SPEC RENDER ---------- */
+function competitorTotal(){
+  let sum=BASE;
+  STEPS.forEach(s=>{
+    if(!s.opts) return;
+    const v=answers[s.key]; if(v===undefined) return;
+    const o=s.opts.find(x=>x.v===v); if(o) sum+=o.delta;
+  });
+  return sum;
+}
+function render(){
+  const comp=competitorTotal();
+  const ours=comp*PRICE_MULTIPLIER;
+  document.getElementById('price').textContent=money(ours);
+  document.getElementById('mkt').innerHTML = Object.keys(answers).length
+    ? `Comparable market builds: <s>${money(comp)}–${money(comp*1.3)}</s>` : '';
+  // progress
+  const totalVisible=STEPS.filter(s=>!(s.showIf&&!s.showIf(answers))&&!(mode==='quick'&&!s.essential&&s.type!=='text')).length;
+  const done=STEPS.filter(s=>answers[s.key]!==undefined).length;
+  document.getElementById('bar').style.width=Math.min(100,Math.round(done/Math.max(1,totalVisible)*100))+'%';
+  // spec list
+  const specs=document.getElementById('specs');
+  const rows=STEPS.filter(s=>answers[s.key]!==undefined);
+  if(!rows.length){ specs.innerHTML='<div class="empty">Your selections will appear here as we go.</div>'; return; }
+  specs.innerHTML=rows.map(s=>{
+    let val;
+    if(s.opts){ const o=s.opts.find(x=>x.v===answers[s.key]); val=o?o.label:answers[s.key]; }
+    else val=answers[s.key];
+    return `<div class="row"><span class="k">${FIELD_LABELS[s.key]||s.key}</span><span class="v">${val}</span></div>`;
+  }).join('');
+}
+
+/* ---------- FINISH ---------- */
+function finish(){
+  phase='done';
+  dock.style.display='none';
+  const comp=competitorTotal(), ours=comp*PRICE_MULTIPLIER;
+  document.getElementById('sumprice').textContent=money(ours);
+  const grid=document.getElementById('sumgrid');
+  grid.innerHTML=STEPS.filter(s=>answers[s.key]!==undefined).map(s=>{
+    let val; if(s.opts){const o=s.opts.find(x=>x.v===answers[s.key]); val=o?o.label:answers[s.key];} else val=answers[s.key];
+    return `<div class="row"><span class="k">${FIELD_LABELS[s.key]||s.key}</span><span>${val}</span></div>`;
+  }).join('');
+  document.getElementById('summary').style.display='block';
+  typing(()=>botSay("That's a stunning spec. 🎸 Scroll down — I've laid out your one-of-one build and a price estimate. Leave your details and our luthier will personally review it."));
+}
+
+function submitLead(){
+  const name=document.getElementById('lf-name').value.trim();
+  const email=document.getElementById('lf-email').value.trim();
+  if(!name||!email){ alert('Please add your name and email so our luthier can reach you.'); return; }
+  document.getElementById('summary').innerHTML=`
+    <h2>Request received, ${name.split(' ')[0]} ✦</h2>
+    <p style="color:var(--muted)">Our luthier will review your custom spec and reach out within one business day at <b>${email}</b>.</p>
+    <p style="color:var(--muted)">In the meantime, every build is backed by our <b style="color:var(--gold2)">100% satisfaction guarantee</b> — handmade with 20 years of care.</p>
+    <button class="btn ghost" onclick="restart()">↺ Design another</button>`;
+}
+function restart(){ document.getElementById('summary').innerHTML=''; location.reload(); }
+
+/* boot */
+startIntro();
+</script>
+</body>
+</html>
