@@ -3,161 +3,194 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Artisan Custom Guitars — Handmade in the EU · 1–2 builds a month</title>
+<title>Old World Guitar Company — Handmade in the EU · 1–2 builds a month</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0e0c0a; --bg2:#161210; --panel:#1d1916; --panel2:#241f1a;
-    --line:#332b24; --gold:#c9a25a; --gold2:#e3c281; --txt:#efe7dc;
-    --muted:#9c9085; --accent:#b9854a; --good:#7fae6a;
-    --shadow:0 18px 50px rgba(0,0,0,.45);
-    --ff:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-    --fd:'Cormorant Garamond',Georgia,serif;
+    --bg:#140f0b; --bg2:#1b1410; --panel:#241a12; --panel2:#2c2017;
+    --stone:#3a2c20; --line:#43332533; --line2:#4a3826;
+    --gold:#c9a25a; --gold2:#e7c884; --txt:#f1e7d6; --parch:#efe2c6;
+    --muted:#b3a085; --accent:#a8743c; --wine:#6e2f2c; --good:#8fae6a;
+    --shadow:0 22px 60px rgba(0,0,0,.55);
+    --ff:'EB Garamond',Georgia,'Times New Roman',serif;
+    --fd:'Cinzel',Georgia,serif;
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
-  body{font-family:var(--ff);background:
-      radial-gradient(1200px 600px at 80% -10%,rgba(201,162,90,.10),transparent 60%),
-      radial-gradient(900px 500px at -10% 110%,rgba(185,133,74,.08),transparent 55%),
+  body{font-family:var(--ff);font-size:18px;background:
+      radial-gradient(1200px 700px at 78% -8%,rgba(201,162,90,.12),transparent 60%),
+      radial-gradient(900px 600px at -8% 108%,rgba(110,47,44,.14),transparent 55%),
       var(--bg);
     color:var(--txt);line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
   a{color:var(--gold2)}
-  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
 
+  /* ---- Header ---- */
   header.site{position:sticky;top:0;z-index:30;backdrop-filter:blur(9px);
-    background:linear-gradient(180deg,rgba(14,12,10,.92),rgba(14,12,10,.7));border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
-  .brand{display:flex;align-items:center;gap:12px;font-family:var(--fd);font-weight:700;font-size:1.45rem;letter-spacing:.3px}
-  .brand .mark{width:34px;height:34px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold2);font-size:1rem}
-  .brand small{display:block;font-family:var(--ff);font-weight:400;font-size:.6rem;letter-spacing:.32em;color:var(--muted);text-transform:uppercase;margin-top:-3px}
-  .nav .pills{display:flex;gap:26px;font-size:.82rem;color:var(--muted)}
-  .badge-usp{font-size:.7rem;color:var(--gold2);border:1px solid var(--line);border-radius:999px;padding:6px 13px;letter-spacing:.04em;white-space:nowrap}
-  @media(max-width:760px){.nav .pills{display:none}}
+    background:linear-gradient(180deg,rgba(20,15,11,.94),rgba(20,15,11,.74));border-bottom:1px solid var(--line2)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:14px}
+  .brand{display:flex;align-items:center;gap:13px}
+  .crest{width:42px;height:42px;flex:0 0 42px}
+  .brand .name{font-family:var(--fd);font-weight:700;font-size:1.18rem;letter-spacing:.08em;line-height:1.05;color:var(--parch)}
+  .brand .name small{display:block;font-family:var(--ff);font-weight:500;font-size:.64rem;letter-spacing:.34em;color:var(--muted);text-transform:uppercase;margin-top:3px}
+  .nav .pills{display:flex;gap:26px;font-size:.92rem;letter-spacing:.03em;color:var(--muted);font-family:var(--fd);font-weight:500}
+  .nav .pills span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;cursor:default}
+  .badge-usp{font-family:var(--fd);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2);border:1px solid var(--line2);border-radius:3px;padding:7px 13px;white-space:nowrap;background:rgba(0,0,0,.2)}
+  @media(max-width:820px){.nav .pills{display:none}}
 
-  .hero{padding:60px 0 8px;text-align:center}
-  .eyebrow{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold2);margin-bottom:18px}
-  .hero h1{font-family:var(--fd);font-weight:700;font-size:clamp(2.4rem,6vw,4.3rem);line-height:1.02;margin:0 0 16px}
-  .hero h1 em{color:var(--gold2);font-style:italic}
-  .hero p.sub{max-width:660px;margin:0 auto 8px;color:var(--muted);font-size:1.06rem;font-weight:300}
-  .trust{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:26px 0 8px}
-  .trust .t{font-size:.78rem;color:var(--txt);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:8px 15px}
-  .trust .t b{color:var(--gold2);font-weight:600}
+  /* ---- Hero ---- */
+  .hero{padding:56px 0 4px;text-align:center}
+  .eyebrow{font-family:var(--fd);font-size:.74rem;letter-spacing:.36em;text-transform:uppercase;color:var(--gold2);margin-bottom:20px}
+  .eyebrow::before,.eyebrow::after{content:'·';margin:0 12px;color:var(--accent)}
+  .hero h1{font-family:var(--fd);font-weight:800;font-size:clamp(2.3rem,5.6vw,4rem);line-height:1.05;margin:0 0 18px;letter-spacing:.01em;color:var(--parch)}
+  .hero h1 em{color:var(--gold2);font-style:italic;font-family:var(--ff);font-weight:500}
+  .hero p.sub{max-width:680px;margin:0 auto 8px;color:var(--muted);font-size:1.16rem}
+  .trust{display:flex;flex-wrap:wrap;gap:11px;justify-content:center;margin:26px 0 6px}
+  .trust .t{font-size:.92rem;color:var(--txt);background:var(--panel);border:1px solid var(--line2);border-radius:4px;padding:8px 16px}
+  .trust .t b{color:var(--gold2);font-weight:600;font-family:var(--fd);font-size:.82rem}
 
-  .manifesto{margin:38px 0 6px;border:1px solid var(--line);border-radius:20px;overflow:hidden;
-    background:linear-gradient(180deg,var(--panel),var(--bg2));box-shadow:var(--shadow)}
-  .manifesto .inner{padding:34px 34px 30px;display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center}
-  @media(max-width:780px){.manifesto .inner{grid-template-columns:1fr;gap:22px}}
-  .manifesto h2{font-family:var(--fd);font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:700;margin:0 0 12px;line-height:1.1}
-  .manifesto h2 em{color:var(--gold2);font-style:italic}
-  .manifesto p{color:var(--muted);margin:0 0 12px;font-size:1rem;font-weight:300}
-  .manifesto p b{color:var(--txt);font-weight:500}
-  .pillars{display:grid;gap:14px}
-  .pillar{display:flex;gap:13px;align-items:flex-start;background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
-  .pillar .ic{flex:0 0 34px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--accent);color:var(--gold2);font-size:1rem}
-  .pillar b{display:block;font-size:.95rem}
-  .pillar span{color:var(--muted);font-size:.84rem}
-  .availability{margin-top:16px;display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--txt)}
-  .availability .dot{width:9px;height:9px;border-radius:50%;background:var(--good);box-shadow:0 0 0 0 rgba(127,174,106,.6);animation:pulse 2.4s infinite}
+  /* ---- Castle town scene ---- */
+  .scene{margin:30px 0 0;border-radius:14px 14px 0 0;overflow:hidden;line-height:0;border:1px solid var(--line2);border-bottom:none}
+  .scene svg{display:block;width:100%;height:auto}
+  .scene-base{height:8px;background:linear-gradient(90deg,#1a130d,#2a1f15,#1a130d);border-left:1px solid var(--line2);border-right:1px solid var(--line2)}
 
-  .builder{display:grid;grid-template-columns:1fr 340px;gap:26px;margin:34px 0 70px;align-items:start}
+  /* ---- Manifesto ---- */
+  .manifesto{margin:0 0 8px;border:1px solid var(--line2);border-radius:0 0 14px 14px;overflow:hidden;
+    background:
+      linear-gradient(180deg,rgba(36,26,18,.96),rgba(27,20,16,.98)),
+      radial-gradient(circle at 20% 0,rgba(201,162,90,.06),transparent 40%);
+    box-shadow:var(--shadow)}
+  .manifesto .inner{padding:38px 36px 32px;display:grid;grid-template-columns:1.25fr 1fr;gap:34px;align-items:center}
+  @media(max-width:800px){.manifesto .inner{grid-template-columns:1fr;gap:24px}}
+  .manifesto h2{font-family:var(--fd);font-weight:700;font-size:clamp(1.6rem,3.2vw,2.3rem);margin:0 0 14px;line-height:1.12;color:var(--parch)}
+  .manifesto h2 em{color:var(--gold2);font-style:italic;font-family:var(--ff);font-weight:500}
+  .manifesto p{color:var(--muted);margin:0 0 13px;font-size:1.08rem}
+  .manifesto p b{color:var(--parch);font-weight:600}
+  .pillars{display:grid;gap:13px}
+  .pillar{display:flex;gap:14px;align-items:flex-start;background:var(--panel2);border:1px solid var(--line2);border-radius:6px;padding:14px 16px}
+  .pillar .ic{flex:0 0 30px;width:30px;height:30px;margin-top:2px}
+  .pillar b{display:block;font-size:1rem;color:var(--txt);font-family:var(--fd);font-weight:600;letter-spacing:.02em}
+  .pillar span{color:var(--muted);font-size:.95rem}
+  .availability{margin-top:18px;display:flex;align-items:center;gap:10px;font-size:.98rem;color:var(--txt)}
+  .availability .dot{width:9px;height:9px;border-radius:50%;background:var(--good);box-shadow:0 0 0 0 rgba(143,174,106,.6);animation:pulse 2.4s infinite}
+
+  /* ---- Builder ---- */
+  .builder{display:grid;grid-template-columns:1fr 344px;gap:26px;margin:34px 0 70px;align-items:start}
   @media(max-width:880px){.builder{grid-template-columns:1fr}}
 
-  .chat{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:20px;
+  .chat{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line2);border-radius:12px;
     box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;min-height:560px}
-  .chat-head{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.2)}
-  .chat-head .av{width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--gold2),var(--accent));display:grid;place-items:center;color:#1a130a;font-weight:700}
-  .chat-head .who{font-weight:600;font-size:.95rem}
-  .chat-head .who small{display:block;color:var(--muted);font-weight:400;font-size:.74rem}
-  .chat-head .live{margin-left:auto;font-size:.72rem;color:var(--good);display:flex;align-items:center;gap:6px}
+  .chat-head{display:flex;align-items:center;gap:13px;padding:16px 20px;border-bottom:1px solid var(--line2);background:rgba(0,0,0,.22)}
+  .chat-head .av{width:40px;height:40px;flex:0 0 40px}
+  .chat-head .who{font-family:var(--fd);font-weight:600;font-size:1rem;color:var(--parch)}
+  .chat-head .who small{display:block;font-family:var(--ff);color:var(--muted);font-weight:400;font-size:.82rem;letter-spacing:.02em}
+  .chat-head .live{margin-left:auto;font-size:.8rem;color:var(--good);display:flex;align-items:center;gap:6px}
   .chat-head .live i{width:7px;height:7px;border-radius:50%;background:var(--good);display:inline-block;animation:pulse 2s infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(127,174,106,.5)}70%{box-shadow:0 0 0 7px rgba(127,174,106,0)}100%{box-shadow:0 0 0 0 rgba(127,174,106,0)}}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(143,174,106,.5)}70%{box-shadow:0 0 0 7px rgba(143,174,106,0)}100%{box-shadow:0 0 0 0 rgba(143,174,106,0)}}
 
   .stream{padding:22px 20px 8px;overflow-y:auto;flex:1;max-height:60vh;scroll-behavior:smooth}
   .msg{display:flex;gap:11px;margin-bottom:16px;animation:rise .35s ease both}
   @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-  .msg .ava{flex:0 0 30px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:.8rem;font-weight:700;margin-top:2px}
-  .msg.bot .ava{background:radial-gradient(circle at 30% 30%,var(--gold2),var(--accent));color:#1a130a}
+  .msg .ava{flex:0 0 30px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:.8rem;font-weight:700;margin-top:2px;overflow:hidden}
+  .msg.bot .ava{background:radial-gradient(circle at 30% 30%,var(--gold2),var(--accent))}
   .msg.me{flex-direction:row-reverse}
-  .msg.me .ava{background:var(--panel2);color:var(--gold2);border:1px solid var(--line)}
-  .bubble{max-width:80%;padding:11px 15px;border-radius:14px;font-size:.95rem}
-  .msg.bot .bubble{background:var(--panel2);border:1px solid var(--line);border-top-left-radius:4px}
-  .msg.me .bubble{background:linear-gradient(180deg,#2c2218,#241b12);border:1px solid var(--accent);border-top-right-radius:4px;color:var(--txt)}
-  .bubble .hint{display:block;color:var(--muted);font-size:.82rem;margin-top:5px}
+  .msg.me .ava{background:var(--stone);color:var(--gold2);border:1px solid var(--line2);font-family:var(--fd);font-size:.66rem}
+  .bubble{max-width:80%;padding:11px 15px;border-radius:10px;font-size:1.02rem}
+  .msg.bot .bubble{background:var(--panel2);border:1px solid var(--line2);border-top-left-radius:3px}
+  .msg.me .bubble{background:linear-gradient(180deg,#33271b,#291f15);border:1px solid var(--accent);border-top-right-radius:3px;color:var(--txt)}
+  .bubble .hint{display:block;color:var(--muted);font-size:.92rem;margin-top:5px;font-style:italic}
   .typing span{display:inline-block;width:7px;height:7px;margin:0 1px;border-radius:50%;background:var(--muted);animation:blink 1.2s infinite both}
   .typing span:nth-child(2){animation-delay:.2s}.typing span:nth-child(3){animation-delay:.4s}
   @keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
 
-  .dock{border-top:1px solid var(--line);padding:16px 20px;background:rgba(0,0,0,.18)}
+  .dock{border-top:1px solid var(--line2);padding:16px 20px;background:rgba(0,0,0,.2)}
   .opts{display:flex;flex-wrap:wrap;gap:10px}
-  .opt{cursor:pointer;border:1px solid var(--line);background:var(--panel2);color:var(--txt);
-    border-radius:12px;padding:11px 14px;font-size:.9rem;transition:.15s;text-align:left;line-height:1.25;max-width:100%}
-  .opt:hover{border-color:var(--gold);transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.3)}
-  .opt b{display:block;font-weight:600}
-  .opt small{color:var(--muted);font-size:.76rem}
-  .opt .delta{color:var(--gold2);font-size:.76rem;font-weight:600}
+  .opt{cursor:pointer;border:1px solid var(--line2);background:var(--panel2);color:var(--txt);
+    border-radius:7px;padding:11px 14px;font-size:1rem;transition:.15s;text-align:left;line-height:1.25;max-width:100%;font-family:var(--ff)}
+  .opt:hover{border-color:var(--gold);transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.35)}
+  .opt b{display:block;font-weight:600;font-family:var(--fd);font-size:.92rem;letter-spacing:.01em}
+  .opt small{color:var(--muted);font-size:.9rem}
+  .opt .delta{color:var(--gold2);font-size:.86rem;font-weight:600;font-family:var(--ff)}
   .opt.rec{border-color:var(--accent)}
-  .opt.rec::after{content:'★ suggested for you';display:block;color:var(--gold2);font-size:.66rem;margin-top:4px;letter-spacing:.05em}
-  .recbtn{cursor:pointer;border:1px dashed var(--accent);background:transparent;color:var(--gold2);border-radius:12px;padding:11px 14px;font-size:.86rem;transition:.15s}
+  .opt.rec::after{content:'✦ suggested for you';display:block;color:var(--gold2);font-size:.72rem;margin-top:4px;letter-spacing:.04em;font-style:italic}
+  .recbtn{cursor:pointer;border:1px dashed var(--accent);background:transparent;color:var(--gold2);border-radius:7px;padding:11px 14px;font-size:.96rem;transition:.15s;font-family:var(--ff);font-style:italic}
   .recbtn:hover{background:rgba(201,162,90,.08)}
   .talk{margin-top:12px;display:flex;gap:8px;align-items:flex-end}
-  .talk textarea,textarea.free,input.free{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:12px;color:var(--txt);
-    padding:12px;font-family:var(--ff);font-size:.92rem;resize:none}
+  .talk textarea,textarea.free,input.free{width:100%;background:var(--bg);border:1px solid var(--line2);border-radius:7px;color:var(--txt);
+    padding:12px;font-family:var(--ff);font-size:1rem;resize:none}
   .talk textarea:focus,textarea.free:focus,input.free:focus{outline:none;border-color:var(--gold)}
-  .iconsend{flex:0 0 auto;cursor:pointer;border:none;border-radius:12px;padding:12px 15px;font-size:.95rem;font-weight:600;
+  .iconsend{flex:0 0 auto;cursor:pointer;border:none;border-radius:7px;padding:12px 16px;font-size:1rem;font-weight:600;
     background:linear-gradient(180deg,var(--gold2),var(--accent));color:#1a130a}
   .iconsend:hover{filter:brightness(1.06)}
   .send{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
-  .btn{cursor:pointer;border:none;border-radius:12px;padding:12px 20px;font-size:.92rem;font-weight:600;transition:.15s;font-family:var(--ff)}
+  .btn{cursor:pointer;border:none;border-radius:7px;padding:12px 22px;font-size:1rem;font-weight:600;transition:.15s;font-family:var(--fd);letter-spacing:.02em}
   .btn.primary{background:linear-gradient(180deg,var(--gold2),var(--accent));color:#1a130a}
   .btn.primary:hover{filter:brightness(1.06);transform:translateY(-1px)}
-  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--txt)}
+  .btn.ghost{background:transparent;border:1px solid var(--line2);color:var(--txt)}
   .btn.ghost:hover{border-color:var(--gold)}
 
-  .spec{position:sticky;top:84px;background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);
-    border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
-  .spec .top{padding:18px 20px;border-bottom:1px solid var(--line)}
-  .spec .top h3{margin:0;font-family:var(--fd);font-size:1.3rem;font-weight:700}
-  .spec .top small{color:var(--muted);font-size:.76rem}
-  .price-box{padding:20px;text-align:center;border-bottom:1px solid var(--line);background:radial-gradient(400px 140px at 50% 0,rgba(201,162,90,.10),transparent)}
-  .price-box .lab{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
-  .price-box .amt{font-family:var(--fd);font-size:2.7rem;font-weight:700;color:var(--gold2);line-height:1.1;margin:4px 0}
-  .price-box .note{font-size:.74rem;color:var(--muted)}
-  .price-box .mkt{font-size:.72rem;color:var(--muted);margin-top:7px}
-  .price-box .mkt s{color:#6f6459}
+  /* ---- Spec ---- */
+  .spec{position:sticky;top:90px;background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line2);
+    border-radius:12px;box-shadow:var(--shadow);overflow:hidden}
+  .spec .top{padding:18px 20px;border-bottom:1px solid var(--line2)}
+  .spec .top h3{margin:0;font-family:var(--fd);font-size:1.3rem;font-weight:700;color:var(--parch);letter-spacing:.02em}
+  .spec .top small{color:var(--muted);font-size:.86rem;font-style:italic}
+  .price-box{padding:20px;text-align:center;border-bottom:1px solid var(--line2);background:radial-gradient(400px 140px at 50% 0,rgba(201,162,90,.12),transparent)}
+  .price-box .lab{font-family:var(--fd);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .price-box .amt{font-family:var(--fd);font-size:2.6rem;font-weight:700;color:var(--gold2);line-height:1.1;margin:6px 0}
+  .price-box .note{font-size:.92rem;color:var(--muted);font-style:italic}
+  .price-box .mkt{font-size:.86rem;color:var(--muted);margin-top:7px}
+  .price-box .mkt s{color:#7a6b54}
   .progress{height:5px;background:var(--panel2)}
   .progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--gold2));transition:width .4s}
   .specs{padding:8px 20px 18px;max-height:300px;overflow-y:auto}
-  .specs .row{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:.85rem}
+  .specs .row{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line2);font-size:.98rem}
   .specs .row:last-child{border-bottom:none}
   .specs .row .k{color:var(--muted)}
-  .specs .row .v{text-align:right;font-weight:500}
-  .specs .empty{color:var(--muted);font-size:.85rem;padding:18px 0;text-align:center}
-  .slots{padding:12px 20px;border-top:1px solid var(--line);font-size:.78rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+  .specs .row .v{text-align:right;font-weight:500;color:var(--parch)}
+  .specs .empty{color:var(--muted);font-size:.96rem;padding:18px 0;text-align:center;font-style:italic}
+  .slots{padding:12px 20px;border-top:1px solid var(--line2);font-size:.88rem;color:var(--muted);display:flex;align-items:center;gap:8px;font-style:italic}
   .slots .dot{width:8px;height:8px;border-radius:50%;background:var(--good)}
 
+  /* ---- Summary ---- */
   .summary{display:none;padding:26px 24px}
-  .summary h2{font-family:var(--fd);font-size:2rem;margin:0 0 4px;color:var(--gold2)}
+  .summary h2{font-family:var(--fd);font-size:1.9rem;margin:0 0 6px;color:var(--gold2);letter-spacing:.01em}
   .sumgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px 22px;margin:18px 0}
   @media(max-width:560px){.sumgrid{grid-template-columns:1fr}}
-  .sumgrid .row{display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:8px 0;font-size:.9rem}
+  .sumgrid .row{display:flex;justify-content:space-between;border-bottom:1px dashed var(--line2);padding:8px 0;font-size:.98rem}
   .sumgrid .row .k{color:var(--muted)}
   .leadform{display:grid;gap:12px;margin-top:18px;grid-template-columns:1fr 1fr}
   .leadform .full{grid-column:1/-1}
   @media(max-width:560px){.leadform{grid-template-columns:1fr}}
 
-  footer.site{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:.82rem;text-align:center}
-  .placeholder-tag{display:inline-block;background:rgba(201,162,90,.12);color:var(--gold2);border:1px solid var(--line);
-    border-radius:6px;padding:2px 8px;font-size:.7rem;margin-left:8px}
+  footer.site{border-top:1px solid var(--line2);padding:30px 0 40px;color:var(--muted);font-size:.92rem;text-align:center;position:relative}
+  footer .ftbrand{font-family:var(--fd);color:var(--parch);letter-spacing:.1em;font-size:1.05rem}
+  footer .skylinemini{opacity:.5;margin-bottom:18px}
 </style>
 </head>
 <body>
 <header class="site">
   <div class="wrap nav">
     <div class="brand">
-      <span class="mark">✦</span>
-      <span>Artisan Custom Guitars<small>Handmade in the EU</small></span>
+      <!-- crest -->
+      <svg class="crest" viewBox="0 0 60 60" aria-hidden="true">
+        <defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#e7c884"/><stop offset="1" stop-color="#a8743c"/></linearGradient></defs>
+        <path d="M30 4 L54 12 V30 C54 44 43 53 30 57 C17 53 6 44 6 30 V12 Z" fill="none" stroke="url(#cg)" stroke-width="2"/>
+        <!-- little castle inside -->
+        <g fill="#e7c884">
+          <rect x="18" y="28" width="24" height="16"/>
+          <rect x="16" y="22" width="6" height="22"/><rect x="38" y="22" width="6" height="22"/>
+          <rect x="27" y="18" width="6" height="26"/>
+          <rect x="16" y="20" width="2" height="3"/><rect x="20" y="20" width="2" height="3"/>
+          <rect x="38" y="20" width="2" height="3"/><rect x="42" y="20" width="2" height="3"/>
+          <rect x="27" y="16" width="2" height="3"/><rect x="31" y="16" width="2" height="3"/>
+        </g>
+        <rect x="28" y="36" width="4" height="8" fill="#a8743c"/>
+      </svg>
+      <div class="name">Old World Guitar Company<small>Handmade in the EU</small></div>
     </div>
     <div class="pills">
       <span>The Atelier</span><span>The Process</span><span>Our Family</span><span>Begin Your Build</span>
@@ -168,29 +201,190 @@
 
 <main class="wrap">
   <section class="hero">
-    <div class="eyebrow">By commission only · Made in Europe</div>
-    <h1>Not built for everyone.<br><em>Built for you.</em></h1>
-    <p class="sub">Tell our master luthier what you hear in your head. We build just one or two electric guitars a month, entirely by hand in our European atelier — so the few people we say yes to receive our complete attention.</p>
+    <div class="eyebrow">By commission only · Made in the Old World</div>
+    <h1>Old craft. Old world.<br><em>One guitar that is wholly yours.</em></h1>
+    <p class="sub">From a small workshop in the heart of old Europe, we build just one or two electric guitars a month — each one shaped entirely by hand. Tell our master luthier what you hear, and we'll make it real.</p>
     <div class="trust">
       <div class="t"><b>Handmade</b> in the EU</div>
-      <div class="t"><b>1–2 guitars</b> per month</div>
+      <div class="t"><b>1–2 guitars</b> a month</div>
       <div class="t"><b>20 years</b> at the bench</div>
       <div class="t"><b>100%</b> satisfaction</div>
     </div>
   </section>
 
+  <!-- ============ CASTLE TOWN SCENE ============ -->
+  <div class="scene">
+    <svg viewBox="0 0 1440 380" preserveAspectRatio="xMidYMax slice" role="img" aria-label="An old European town at dusk with a castle and spires">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#191333"/>
+          <stop offset="0.45" stop-color="#3a2742"/>
+          <stop offset="0.78" stop-color="#7d4a34"/>
+          <stop offset="1" stop-color="#b9794a"/>
+        </linearGradient>
+        <radialGradient id="moon" cx="50%" cy="50%" r="50%">
+          <stop offset="0" stop-color="#fff6e0"/><stop offset="1" stop-color="#e8cf94"/>
+        </radialGradient>
+        <radialGradient id="moonglow" cx="50%" cy="50%" r="50%">
+          <stop offset="0" stop-color="rgba(255,243,210,.45)"/><stop offset="1" stop-color="rgba(255,243,210,0)"/>
+        </radialGradient>
+      </defs>
+
+      <rect width="1440" height="380" fill="url(#sky)"/>
+      <circle cx="1140" cy="92" r="92" fill="url(#moonglow)"/>
+      <circle cx="1140" cy="92" r="38" fill="url(#moon)"/>
+      <g fill="#fff4d6" opacity="0.7">
+        <circle cx="120" cy="60" r="1.4"/><circle cx="240" cy="110" r="1.1"/><circle cx="360" cy="48" r="1.5"/>
+        <circle cx="520" cy="90" r="1.1"/><circle cx="700" cy="56" r="1.3"/><circle cx="860" cy="100" r="1.1"/>
+        <circle cx="980" cy="44" r="1.4"/><circle cx="1280" cy="130" r="1.2"/><circle cx="1360" cy="64" r="1.3"/>
+      </g>
+
+      <!-- distant hills -->
+      <path d="M0 300 Q 300 250 600 290 T 1440 280 V380 H0 Z" fill="#241a2a" opacity="0.9"/>
+
+      <!-- ======= TOWNHOUSES (left cluster) ======= -->
+      <g fill="#241b14">
+        <polygon points="60,300 60,235 95,205 130,235 130,300"/>
+        <rect x="130" y="240" width="70" height="60"/><polygon points="125,242 165,212 205,242"/>
+        <rect x="205" y="252" width="58" height="48"/><polygon points="200,254 234,228 268,254"/>
+        <rect x="34" y="262" width="32" height="38"/>
+      </g>
+      <!-- terracotta roofs accents -->
+      <g fill="#6e3a2e">
+        <polygon points="125,242 165,212 205,242 200,246 165,219 130,246"/>
+        <polygon points="200,254 234,228 268,254 264,258 234,234 204,258"/>
+      </g>
+
+      <!-- ======= CATHEDRAL (left of centre) ======= -->
+      <g fill="#2a2018">
+        <rect x="320" y="160" width="54" height="140"/>
+        <polygon points="316,162 347,96 378,162"/>           <!-- spire -->
+        <rect x="344" y="78" width="6" height="20"/>           <!-- finial -->
+        <rect x="341" y="84" width="12" height="4"/>           <!-- cross -->
+        <rect x="374" y="210" width="70" height="90"/>          <!-- nave -->
+        <polygon points="370,212 409,182 448,212"/>
+      </g>
+      <circle cx="347" cy="150" r="9" fill="#f4cd7e" opacity="0.9"/>   <!-- rose window -->
+      <g fill="#f4cd7e">
+        <rect x="333" y="200" width="7" height="14" rx="3"/><rect x="355" y="200" width="7" height="14" rx="3"/>
+        <rect x="333" y="232" width="7" height="14" rx="3"/><rect x="355" y="232" width="7" height="14" rx="3"/>
+        <rect x="388" y="238" width="8" height="16" rx="3"/><rect x="422" y="238" width="8" height="16" rx="3"/>
+      </g>
+
+      <!-- ======= THE CASTLE (centre) ======= -->
+      <g fill="#352819">
+        <!-- left round tower -->
+        <rect x="560" y="150" width="62" height="150"/>
+        <polygon points="556,152 591,92 626,152"/>            <!-- conical roof -->
+        <!-- right round tower -->
+        <rect x="820" y="150" width="62" height="150"/>
+        <polygon points="816,152 851,92 886,152"/>
+        <!-- central keep -->
+        <rect x="636" y="120" width="170" height="180"/>
+        <!-- gatehouse -->
+        <rect x="690" y="210" width="62" height="90"/>
+      </g>
+      <!-- keep crenellations -->
+      <g fill="#352819">
+        <rect x="636" y="108" width="16" height="14"/><rect x="662" y="108" width="16" height="14"/>
+        <rect x="688" y="108" width="16" height="14"/><rect x="714" y="108" width="16" height="14"/>
+        <rect x="740" y="108" width="16" height="14"/><rect x="766" y="108" width="16" height="14"/>
+        <rect x="790" y="108" width="16" height="14"/>
+      </g>
+      <!-- flags -->
+      <g>
+        <rect x="590" y="64" width="2.5" height="30" fill="#caa05a"/>
+        <polygon points="592,66 614,72 592,80" fill="#6e2f2c"/>
+        <rect x="850" y="64" width="2.5" height="30" fill="#caa05a"/>
+        <polygon points="852,66 874,72 852,80" fill="#6e2f2c"/>
+        <rect x="720" y="92" width="2.5" height="22" fill="#caa05a"/>
+        <polygon points="722,94 742,99 722,106" fill="#6e2f2c"/>
+      </g>
+      <!-- castle windows (lit) -->
+      <g fill="#f4cd7e">
+        <rect x="582" y="180" width="9" height="18" rx="4"/><rect x="582" y="222" width="9" height="18" rx="4"/>
+        <rect x="842" y="180" width="9" height="18" rx="4"/><rect x="842" y="222" width="9" height="18" rx="4"/>
+        <rect x="658" y="150" width="10" height="20" rx="4"/><rect x="690" y="150" width="10" height="20" rx="4"/>
+        <rect x="722" y="150" width="10" height="20" rx="4"/><rect x="754" y="150" width="10" height="20" rx="4"/>
+        <rect x="658" y="186" width="10" height="20" rx="4"/><rect x="774" y="186" width="10" height="20" rx="4"/>
+      </g>
+      <!-- arched gate -->
+      <path d="M704 300 V250 a17 17 0 0 1 34 0 V300 Z" fill="#0e0a07"/>
+      <path d="M704 300 V250 a17 17 0 0 1 34 0 V300" fill="none" stroke="#caa05a" stroke-width="2" opacity="0.5"/>
+
+      <!-- ======= TOWNHOUSES (right cluster) ======= -->
+      <g fill="#241b14">
+        <rect x="900" y="244" width="64" height="56"/><polygon points="896,246 932,216 968,246"/>
+        <rect x="968" y="232" width="58" height="68"/><polygon points="963,234 997,204 1031,234"/>
+        <rect x="1031" y="252" width="60" height="48"/><polygon points="1026,254 1061,228 1096,254"/>
+        <rect x="1110" y="226" width="40" height="74"/><polygon points="1106,228 1130,200 1154,228"/>
+        <rect x="1170" y="250" width="70" height="50"/><polygon points="1165,252 1205,222 1245,252"/>
+        <rect x="1255" y="240" width="60" height="60"/><polygon points="1250,242 1285,214 1320,242"/>
+        <rect x="1330" y="258" width="60" height="42"/><polygon points="1325,260 1360,234 1395,260"/>
+      </g>
+      <g fill="#6e3a2e">
+        <polygon points="896,246 932,216 968,246 964,250 932,222 900,250"/>
+        <polygon points="1026,254 1061,228 1096,254 1092,258 1061,234 1030,258"/>
+        <polygon points="1165,252 1205,222 1245,252 1241,256 1205,228 1169,256"/>
+      </g>
+      <!-- townhouse windows -->
+      <g fill="#f4cd7e">
+        <rect x="916" y="258" width="9" height="13"/><rect x="938" y="258" width="9" height="13"/>
+        <rect x="984" y="250" width="9" height="13"/><rect x="1006" y="250" width="9" height="13"/>
+        <rect x="1048" y="266" width="9" height="13"/><rect x="1122" y="244" width="9" height="13"/>
+        <rect x="1190" y="264" width="9" height="13"/><rect x="1212" y="264" width="9" height="13"/>
+        <rect x="1272" y="256" width="9" height="13"/><rect x="1348" y="272" width="9" height="13"/>
+      </g>
+
+      <!-- ======= FOREGROUND TOWN WALL ======= -->
+      <g fill="#1a130d">
+        <rect x="0" y="320" width="1440" height="60"/>
+        <!-- merlons -->
+        <g>
+          <rect x="0" y="306" width="26" height="16"/><rect x="44" y="306" width="26" height="16"/>
+          <rect x="88" y="306" width="26" height="16"/><rect x="132" y="306" width="26" height="16"/>
+          <rect x="176" y="306" width="26" height="16"/><rect x="220" y="306" width="26" height="16"/>
+          <rect x="264" y="306" width="26" height="16"/><rect x="308" y="306" width="26" height="16"/>
+          <rect x="352" y="306" width="26" height="16"/><rect x="396" y="306" width="26" height="16"/>
+          <rect x="440" y="306" width="26" height="16"/><rect x="484" y="306" width="26" height="16"/>
+          <rect x="528" y="306" width="26" height="16"/><rect x="572" y="306" width="26" height="16"/>
+          <rect x="616" y="306" width="26" height="16"/><rect x="660" y="306" width="26" height="16"/>
+          <rect x="704" y="306" width="26" height="16"/><rect x="748" y="306" width="26" height="16"/>
+          <rect x="792" y="306" width="26" height="16"/><rect x="836" y="306" width="26" height="16"/>
+          <rect x="880" y="306" width="26" height="16"/><rect x="924" y="306" width="26" height="16"/>
+          <rect x="968" y="306" width="26" height="16"/><rect x="1012" y="306" width="26" height="16"/>
+          <rect x="1056" y="306" width="26" height="16"/><rect x="1100" y="306" width="26" height="16"/>
+          <rect x="1144" y="306" width="26" height="16"/><rect x="1188" y="306" width="26" height="16"/>
+          <rect x="1232" y="306" width="26" height="16"/><rect x="1276" y="306" width="26" height="16"/>
+          <rect x="1320" y="306" width="26" height="16"/><rect x="1364" y="306" width="26" height="16"/>
+          <rect x="1408" y="306" width="26" height="16"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <div class="scene-base"></div>
+
   <section class="manifesto">
     <div class="inner">
       <div>
         <h2>You don't place an order.<br><em>You join the family.</em></h2>
-        <p>Most guitars are made by the thousand. Ours aren't. We deliberately keep our workshop small — <b>one or two instruments a month, no more</b> — because the moment we accept your commission, you become our primary focus.</p>
-        <p>Every guitar is shaped, carved, wired, and finished by hand in <b>the European Union</b>, by a luthier with twenty years at the bench. You'll know us by name, we'll know your playing, and the instrument that arrives will be the only one of its kind on earth — yours, and part of our family for life.</p>
+        <p>Most guitars are made by the thousand. Ours aren't. We keep our workshop deliberately small — <b>one or two instruments a month, no more</b> — because the moment we accept your commission, you become our primary focus.</p>
+        <p>Every guitar is shaped, carved, wired and finished by hand in <b>the European Union</b>, by a luthier with twenty years at the bench. You'll know us by name, we'll know your playing, and the instrument that arrives will be the only one of its kind on earth — yours, and part of our family for life.</p>
         <div class="availability"><span class="dot"></span> Currently accepting <b>&nbsp;2 commissions&nbsp;</b> for the coming season.</div>
       </div>
       <div class="pillars">
-        <div class="pillar"><div class="ic">✦</div><div><b>Made in the EU, by hand</b><span>No factories, no outsourcing — shaped at our own bench.</span></div></div>
-        <div class="pillar"><div class="ic">❶</div><div><b>Only 1–2 builds a month</b><span>Scarcity by design, so your guitar is never rushed.</span></div></div>
-        <div class="pillar"><div class="ic">♡</div><div><b>You become family</b><span>Your build is our focus — and you stay one of ours.</span></div></div>
+        <div class="pillar">
+          <svg class="ic" viewBox="0 0 30 30" fill="#e7c884"><path d="M4 26h22v2H4z"/><rect x="6" y="12" width="4" height="14"/><rect x="20" y="12" width="4" height="14"/><rect x="13" y="8" width="4" height="18"/><path d="M5 12l3-4 3 4zM19 12l3-4 3 4zM12 8l3-4 3 4z"/></svg>
+          <div><b>Made in the EU, by hand</b><span>No factories, no outsourcing — shaped at our own bench in old Europe.</span></div>
+        </div>
+        <div class="pillar">
+          <svg class="ic" viewBox="0 0 30 30" fill="none" stroke="#e7c884" stroke-width="2"><circle cx="15" cy="15" r="12"/><path d="M15 8v7l5 3"/></svg>
+          <div><b>Only 1–2 builds a month</b><span>Scarcity by design, so your guitar is never rushed.</span></div>
+        </div>
+        <div class="pillar">
+          <svg class="ic" viewBox="0 0 30 30" fill="#e7c884"><path d="M15 26S4 19 4 11.5A6.5 6.5 0 0 1 15 7a6.5 6.5 0 0 1 11 4.5C26 19 15 26 15 26z"/></svg>
+          <div><b>You become family</b><span>Your build is our focus — and you stay one of ours.</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -198,7 +392,7 @@
   <section class="builder">
     <div class="chat">
       <div class="chat-head">
-        <div class="av">✦</div>
+        <svg class="av" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#a8743c"/><g fill="#1a130a"><rect x="13" y="20" width="14" height="9"/><rect x="11" y="16" width="4" height="13"/><rect x="25" y="16" width="4" height="13"/><rect x="18" y="13" width="4" height="16"/></g></svg>
         <div class="who">Bench <small>Your personal build guide</small></div>
         <div class="live"><i></i> 2 slots open</div>
       </div>
@@ -209,9 +403,9 @@
         <h2>Your one-of-one spec sheet</h2>
         <p style="color:var(--muted);margin:0">This is the guitar we'll handcraft for you in our EU atelier. Leave your details and our luthier will personally review your build and reach out — not a sales team, the person who'll actually make it.</p>
         <div class="sumgrid" id="sumgrid"></div>
-        <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);padding-top:14px;margin-top:6px">
-          <span style="color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.15em">Your handcrafted investment</span>
-          <span style="font-family:var(--fd);font-size:2.1rem;color:var(--gold2);font-weight:700" id="sumprice">—</span>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line2);padding-top:14px;margin-top:6px">
+          <span style="color:var(--muted);font-size:.86rem;text-transform:uppercase;letter-spacing:.15em;font-family:var(--fd)">Your handcrafted investment</span>
+          <span style="font-family:var(--fd);font-size:2rem;color:var(--gold2);font-weight:700" id="sumprice">—</span>
         </div>
         <div class="leadform">
           <input class="free" id="lf-name" placeholder="Your name">
@@ -220,7 +414,7 @@
           <textarea class="free full" id="lf-notes" rows="2" placeholder="Anything else we should know? (your playing, a timeline, an inspiration…)"></textarea>
           <button class="btn primary full" onclick="submitLead()">Request my build &nbsp;→</button>
         </div>
-        <p style="color:var(--muted);font-size:.78rem;margin-top:12px">Estimate only — your final quote is confirmed after our luthier reviews your spec. With just 1–2 builds a month, slots are limited; reaching out starts the conversation, no deposit required.</p>
+        <p style="color:var(--muted);font-size:.88rem;margin-top:12px;font-style:italic">Estimate only — your final quote is confirmed after our luthier reviews your spec. With just 1–2 builds a month, slots are limited; reaching out starts the conversation, no deposit required.</p>
         <div style="margin-top:14px"><button class="btn ghost" onclick="restart()">↺ Start a new build</button></div>
       </div>
     </div>
@@ -245,7 +439,14 @@
 
 <footer class="site">
   <div class="wrap">
-    Artisan Custom Guitars <span class="placeholder-tag">placeholder name — swap for your brand</span><br>
+    <svg class="skylinemini" width="220" height="34" viewBox="0 0 220 34" aria-hidden="true" fill="#b3a085">
+      <rect x="0" y="22" width="220" height="12"/>
+      <rect x="20" y="10" width="16" height="14"/><polygon points="18,12 28,2 38,12"/>
+      <rect x="96" y="6" width="24" height="18"/><rect x="90" y="12" width="8" height="12"/><rect x="118" y="12" width="8" height="12"/>
+      <polygon points="100,8 108,0 116,8"/>
+      <rect x="170" y="9" width="14" height="15"/><polygon points="168,11 177,3 186,11"/>
+    </svg>
+    <div class="ftbrand">Old World Guitar Company</div>
     Handmade in the European Union · 1–2 instruments a month · Backed by our 100% satisfaction guarantee · © 2026
   </div>
 </footer>
@@ -416,7 +617,7 @@ const STEPS = [
     opts:[
       {v:'255',label:'25.5" (Fender)',d:'Tight, bright',delta:0,kw:['25.5','fender scale','long scale']},
       {v:'2475',label:'24.75" (Gibson)',d:'Slinky, warm',delta:0,kw:['24.75','gibson scale','short scale','slinky']},
-      {v:'multi',label:'Multiscale / Fanned',d:'Even tension, low tunings',delta:260,kw:['multiscale','multi-scale','fanned','fan fret']},
+      {v:'multi',label:'Multiscale / Fanned',d:'Even tension, low tunings',delta:260,kw:['multiscale','multi-scale','fanned','fan fret','fanned fret']},
     ]},
   { key:'pickupConfig', essential:true,
     q:()=>`Now the engine room. What pickup layout?`,
@@ -546,12 +747,12 @@ let answers={}, mode='full', phase='intro';
 const stream=document.getElementById('stream'), dock=document.getElementById('dock');
 
 function botSay(html,hint){const m=document.createElement('div');m.className='msg bot';
-  m.innerHTML=`<div class="ava">✦</div><div class="bubble">${html}${hint?`<span class="hint">${hint}</span>`:''}</div>`;
+  m.innerHTML=`<div class="ava"></div><div class="bubble">${html}${hint?`<span class="hint">${hint}</span>`:''}</div>`;
   stream.appendChild(m);scrollDown();}
 function meSay(text){const m=document.createElement('div');m.className='msg me';
   m.innerHTML=`<div class="ava">you</div><div class="bubble">${esc(text)}</div>`;stream.appendChild(m);scrollDown();}
 function typing(cb,ms){const m=document.createElement('div');m.className='msg bot';
-  m.innerHTML=`<div class="ava">✦</div><div class="bubble typing"><span></span><span></span><span></span></div>`;
+  m.innerHTML=`<div class="ava"></div><div class="bubble typing"><span></span><span></span><span></span></div>`;
   stream.appendChild(m);scrollDown();setTimeout(()=>{m.remove();cb();},ms||560);}
 function scrollDown(){stream.scrollTop=stream.scrollHeight;}
 function clearDock(){dock.innerHTML='';}
@@ -568,7 +769,7 @@ function startIntro(){
       <button class="btn primary" onclick="submitIntro()">Let's build it together &nbsp;→</button>
       <button class="btn ghost" onclick="document.getElementById('intro').value='';submitIntro(true)">I'm not sure yet — guide me</button>
     </div>`;
-  document.getElementById('intro').focus();
+  document.getElementById('intro').focus({preventScroll:true});
 }
 
 function submitIntro(skip){
@@ -625,7 +826,7 @@ function renderQuestion(step){
     html+=`<button class="opt${isRec?' rec':''}" onclick="answer('${step.key}','${o.v}')">
       <b>${o.label}${o.delta?` <span class="delta">+${money(o.delta*PRICE_MULTIPLIER)}</span>`:''}</b><small>${o.d}</small></button>`;});
   html+='</div>';
-  html+=`<div style="margin-top:10px"><button class="recbtn" onclick="answer('${step.key}','${rec.v}',true)">✨ Not sure — what would you choose?</button></div>`;
+  html+=`<div style="margin-top:10px"><button class="recbtn" onclick="answer('${step.key}','${rec.v}',true)">✦ Not sure — what would you choose?</button></div>`;
   html+=`<div class="talk"><textarea class="free" id="stepfree" rows="1" placeholder="…or just tell me in your own words"></textarea>
          <button class="iconsend" onclick="handleStepText('${step.key}')">→</button></div>`;
   dock.innerHTML=html;
@@ -637,7 +838,7 @@ function nextQuestion(){const step=nextStep();if(!step){finish();return;}renderQ
 
 function answer(key,val,viaRec){
   const step=STEPS.find(s=>s.key===key);const o=step.opts.find(x=>x.v===val);
-  answers[key]=val;meSay((viaRec?'✨ ':'')+o.label);render();clearDock();
+  answers[key]=val;meSay((viaRec?'✦ ':'')+o.label);render();clearDock();
   typing(()=>{botSay(ackFor(step,o,viaRec));nextQuestion();});
 }
 function answerText(key){const el=document.getElementById('freein');const v=(el.value||'').trim()||'Your choice';
